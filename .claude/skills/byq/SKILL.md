@@ -30,8 +30,11 @@ Le MCP fournit le code **React/Tailwind**, une capture et une description détai
 2. **Proposer 2 à 3 candidats** (`search_byq_*`, vignettes affichées) : nom, pourquoi il convient, lien BYQ, mention Pro le cas échéant. Sauter cette étape seulement si la demande est déjà très précise.
 3. **Récupérer la référence** (`get_byq_component`) : structure, tailles, espacements, comportement à chaque breakpoint.
 4. **Réécrire en HTML + CSS Webflow**, qui sera inséré par l'agent Webflow avec `data_whtml_builder` :
-   - Classes Client-First : `section_[nom]` > `padding-global` > `container-*`, puis classes custom `[section]_[element]`, états `is-[état]`.
+   - Classes Client-First : `section_[nom]` > `padding-global` > `container-*`, puis classes custom `[section]_[element]`, états `is-[état]`. Une section pleine largeur (split, image à fond perdu) peut se passer de `padding-global` et `container-*` : gère alors les marges dans ses propres classes.
+   - Page vide : encadre la première section dans `page-wrapper` > `main.main-wrapper`. Toute classe doit porter au moins une propriété CSS, sinon le builder ne la crée pas.
    - Couleurs, polices et rayons : **variables du projet** (`var(--brand--primary)`…) issues des *Design tokens* de `client.md`. Aucune valeur en dur sauf exception justifiée.
+   - **Couleurs semi-transparentes** de la référence (ex : `#121212a3`) : remplace-les par une couleur pleine. Calculé sur le fond réel, le texte atténué de BYQ tombe souvent sous 4.5:1.
+   - Pseudo-états : `:hover`, `:focus` et `:active` uniquement dans le CSS ; `:focus-visible` est ajouté ensuite par l'agent Webflow.
    - Tailles et espacements repris de la référence ; media queries aux breakpoints Webflow (Tablet ≤991px, Mobile (L) ≤767px, Mobile ≤479px).
    - Textes du client (voir *Sources client*) ; images : photos de `.knowledge/photos/`, sinon placeholder neutre clairement signalé.
    - **Aucune classe Tailwind** dans Webflow. Table d'aide :
@@ -43,7 +46,8 @@ Le MCP fournit le code **React/Tailwind**, une capture et une description détai
    | `text-5xl font-bold` | `heading-style-h1` (ou h2…) |
    | `text-lg text-gray-600` | `text-size-large` + `text-color-secondary` |
    | `grid grid-cols-2` | classe custom `[nom]_grid` en grid |
-   | `max-[767px]:…` | même propriété dans la media query Mobile (L) |
+   | `max-[767px]:…` | même propriété dans `@media screen and (max-width: 767px)` |
+   | `max-w-[12ch]` sur un titre | à élargir pour le français (≈ 16ch), plus long que l'anglais |
    | Couleurs / rayons en dur | Variables Webflow |
 5. **Animations :** la logique React (`useState`, IntersectionObserver, GSAP, parallax) **n'est pas reprise** dans la reconstruction. Note-la dans les *Points ouverts*, avec la recommandation : interaction Webflow native si la charte le justifie, ou rien si elle demande des animations sobres. Prévois toujours le comportement `prefers-reduced-motion`.
 
@@ -54,4 +58,4 @@ Le MCP fournit le code **React/Tailwind**, une capture et une description détai
 3. Inspecte le collage en lecture seule (`data_element_tool`, `data_style_tool`, `element_snapshot_tool`), puis prépare le plan d'adaptation : variables du projet à la place des valeurs en dur, classes en double vers les classes existantes, contenus et images client, `prefers-reduced-motion`.
 
 ## Sortie
-Termine par le **Bloc de Transmission** défini dans `CLAUDE.md` : *Structure* = HTML Client-First prêt à insérer (ou arbre du collage, en chemin B), *Classes à créer / réutiliser* = liste des classes et variables, *Points ouverts* = animations non reprises et éléments `[À FOURNIR]`.
+Termine par le **Bloc de Transmission** défini dans `CLAUDE.md` : *Structure* = HTML Client-First prêt à insérer (ou arbre du collage, en chemin B), *Classes et variables* = classes et variables à créer ou réutiliser, *Points ouverts* = animations non reprises et éléments `[À FOURNIR]`.

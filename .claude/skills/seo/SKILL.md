@@ -15,16 +15,15 @@ Ton objectif : optimiser le référencement naturel du contenu avant et après s
 
 ## Instructions
 1. **Hiérarchie Hn :**
-   - Un unique `<h1>` par page, contenant le mot-clé principal.
+   - Un unique `<h1>` par page, contenant le mot-clé visé par la page (*Arborescence* de `client.md`), formulé naturellement.
    - Hiérarchie stricte (`<h2>`, `<h3>`…) sans sauter de niveau.
    - Le style visuel (`heading-style-h2`) peut différer de la balise sémantique : vérifie la **balise**, pas la classe.
 2. **Métadonnées :**
    - Meta Title < 60 caractères, mot-clé principal en début.
    - Meta Description < 155 caractères, incitative, avec un Call-to-Action.
-   - OpenGraph : `og:title`, `og:description`, `og:image` (1200×630).
-   - Twitter Card : `summary_large_image`.
-   - URL canonique cohérente avec le slug.
-3. **Données structurées (JSON-LD) :** propose le schéma adapté au type de page (`Organization`, `LocalBusiness`, `Article`, `FAQPage`, `Product`, `BreadcrumbList`…), à placer dans le custom code de la page.
+   - OpenGraph : titre et description recopiés des metas (`titleCopied` / `descriptionCopied`) sauf besoin contraire ; `og:image` 1200×630.
+   - URL canonique : réglage global du site (*Site settings > SEO*), à vérifier une fois par projet.
+3. **Données structurées (JSON-LD) :** propose le schéma adapté au type de page (`Organization`, `LocalBusiness`, `Article`, `FAQPage`, `Product`, `BreadcrumbList`…). Il s'écrit dans le champ `jsonLdSchema` de la page (agent Webflow), pas dans le custom code. Ne le propose que lorsque ses champs obligatoires sont connus.
 4. **AEO (moteurs de réponse IA) :** pour les pages clés, contenu en questions/réponses claires ; consulte `data_aeo_tool` du MCP Webflow si disponible.
 5. **CMS Webflow :**
    - Slugs courts, en minuscules, sans mots vides, avec tirets.

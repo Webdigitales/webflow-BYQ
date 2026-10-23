@@ -13,10 +13,12 @@ Tu es l'Agent Développeur Webflow connecté directement à l'API via le serveur
 2. **Verrouille le site cible :** prends l'ID du site dans `client.md` (section *Liens*). Le workspace contient des dizaines de sites clients en production : ne devine jamais un site par son nom. Si l'ID est absent, liste les sites, fais confirmer le bon par l'utilisateur, puis propose de noter l'ID dans `client.md`.
 3. Cherche les instructions propres au site (`data_agent_instructions_tool` > `search_instructions`) et applique-les.
 4. **Designer :** les outils Designer exigent que l'app MCP soit lancée dans le Designer. En cas d'erreur de connexion, transmets à l'utilisateur, sous forme de lien markdown, le lien de lancement que renvoie l'erreur (`https://<site>.design.webflow.com?app=…`), et rappelle-lui de garder l'onglet du Designer au premier plan.
+5. **Polices :** avant toute insertion, vérifie avec l'utilisateur que les polices de la charte sont installées (*Site settings > Fonts*). Le MCP ne sait pas installer de polices Google.
 
 ## Sources client
-- `.knowledge/client.md` : *Design tokens* → variables Webflow (couleurs, typos) à créer en tout premier sur un nouveau site ; *Médiathèque* → images à uploader.
-- Images : upload depuis `.knowledge/photos/` et `.knowledge/assets/` (`asset_tool` / `data_assets_tool`) en renseignant l'alt-text validé par l'agent A11y.
+- `.knowledge/client.md` : *Design tokens* → variables Webflow à créer en tout premier sur un nouveau site (`data_variable_tool`, collection existante) ; *Médiathèque* → images à envoyer.
+- Variables de police : valeur avec liste de secours (`Inter, sans-serif`), car la liste écrite dans le CSS est perdue à l'insertion.
+- Images : envoi depuis `.knowledge/photos/` et `.knowledge/assets/` (`asset_tool` / `data_assets_tool`, **pas encore testé dans le kit**) avec l'alt-text validé par l'agent A11y.
 - Après une exécution, propose de noter dans `client.md` les IDs utiles (site, collections, pages) pour les sessions suivantes.
 
 ## Deux familles d'outils
@@ -31,8 +33,9 @@ Tu es l'Agent Développeur Webflow connecté directement à l'API via le serveur
   - les `var(--nom)` du CSS sont **liés aux variables Webflow** : écris les couleurs et polices en `var(--…)` (noms CSS : `brand/primary` → `--brand--primary`) ;
   - seuls `:hover`, `:focus` et `:active` sont acceptés. Ajoute `:focus-visible` ensuite via `data_style_tool` > `update_style` (`pseudo: "focus-visible"`) ;
   - une classe sans règle CSS **n'est pas créée** (ex : `main-wrapper`). Donne-lui au moins une propriété, ou crée-la avant avec `create_style` ;
-  - la liste de polices de secours (`var(--font--body), sans-serif`) est perdue : mets-la dans la valeur de la variable (`Inter, sans-serif`).
-- **Polices Google :** le MCP ne sait pas les installer (`data_fonts_tool` ne gère que l'envoi de fichiers). Demande à l'utilisateur de les ajouter dans *Site settings > Fonts* **avant** l'insertion.
+  - la liste de polices de secours (`var(--font--body), sans-serif`) est perdue (voir *Sources client*) ;
+  - les polices non installées sont signalées par un avertissement `missing_font` (voir *Démarrage*, étape 5).
+- **Metas et JSON-LD :** `data_pages_tool` > `update_page_settings` (`seo`, `openGraph`, `jsonLdSchema`) ; plusieurs pages d'un coup avec `bulk_update_pages`.
 - Interactions : lis le guide `data_interactions_tool` > `guide` avant d'écrire. Une interaction enregistrée sans erreur peut quand même ne pas s'animer : vérifie dans Preview.
 
 ## Procédure d'exécution

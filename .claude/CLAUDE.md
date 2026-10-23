@@ -12,7 +12,7 @@
 - `.knowledge/client.md` : fiche consolidée générée par `/onboard`, **source de vérité** de tous les agents.
 
 ## Base de Connaissance Client
-1. **Lire avant d'agir :** avant toute tâche, lis `.knowledge/client.md`. S'il n'existe pas, propose de lancer `/onboard` d'abord.
+1. **Lire avant d'agir :** avant toute tâche sur le projet client (contenu, design, SEO, Webflow), lis `.knowledge/client.md`. S'il n'existe pas, propose de lancer `/onboard` d'abord. Les tâches de maintenance du kit lui-même n'en ont pas besoin.
 2. **Zéro invention :** n'invente jamais de faits client (coordonnées, prix, chiffres, témoignages, références, noms). Utilise le placeholder `[À FOURNIR : …]` et signale-le dans les *Points ouverts*.
 3. **Priorité des sources :** consignes de l'utilisateur dans la conversation > `client.md` > documents bruts de `.knowledge/` > valeurs par défaut BYQ.
 4. **Fiche à jour :** si une nouvelle info client apparaît en conversation, propose de l'ajouter à `client.md`.
@@ -29,10 +29,10 @@
 | Commande | Skill | Rôle |
 |---|---|---|
 | `/onboard` | `skills/onboard` | Lit `.knowledge/` et génère la fiche `client.md` |
-| `/byq` | `skills/byq` | Sélection et adaptation des composants BYQ → Client-First |
-| `/seo` | `skills/seo` | Hiérarchie Hn, metas, OpenGraph, données structurées, CMS |
+| `/byq` | `skills/byq` | Choix d'un composant BYQ et reconstruction en HTML/CSS Client-First |
+| `/seo` | `skills/seo` | Hiérarchie Hn, metas, OpenGraph, JSON-LD, CMS |
 | `/a11y` | `skills/a11y` | Audit WCAG 2.1 AA : contrastes, ARIA, alt-texts, clavier, motion |
-| `/webflow` | `skills/webflow` | Injection et modification via le MCP Webflow |
+| `/webflow` | `skills/webflow` | Lecture, écriture et vérification via le MCP Webflow |
 | `/pipeline` | `skills/pipeline` | Workflow complet BYQ → SEO → A11y → Webflow |
 
 ## Format de Transmission entre Agents
@@ -46,8 +46,9 @@ Chaque agent termine sa réponse par un **Bloc de Transmission** que l'agent sui
 ### Structure (HTML Client-First)
 <html annoté avec classes Client-First>
 
-### Classes à créer / réutiliser
+### Classes et variables
 - `.section_xxx` — nouvelle | existante
+- `brand/primary` (`--brand--primary`) — à créer | existante
 - ...
 
 ### SEO
@@ -65,7 +66,7 @@ Chaque agent termine sa réponse par un **Bloc de Transmission** que l'agent sui
 ```
 
 ## Séquence Standard (/pipeline)
-0. **Prérequis :** `.knowledge/client.md` existe (sinon `/onboard`).
+0. **Prérequis :** `.knowledge/client.md` existe avec l'ID du site (sinon `/onboard`) ; polices de la charte installées dans Webflow ; app MCP lancée dans le Designer.
 1. **Étape 1 (BYQ) :** Sélection du composant BYQ → réécriture en HTML/CSS Client-First aux couleurs du client (chemin B : copier-coller BYQ en secours).
 2. **Étape 2 (SEO) :** Hiérarchie Hn, meta-tags, OpenGraph, JSON-LD et champs CMS.
 3. **Étape 3 (A11y) :** Contrastes, attributs ARIA, alt-texts, clavier, `prefers-reduced-motion`.

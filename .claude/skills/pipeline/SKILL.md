@@ -10,7 +10,8 @@ Tu enchaînes les quatre agents dans l'ordre, en endossant un seul rôle à la f
 ## 0. Cadrage
 1. Lis `.knowledge/client.md`. S'il n'existe pas, ou s'il y a dans `.knowledge/` des fichiers plus récents que lui, propose de lancer `/onboard` d'abord.
 2. Récupère dans la fiche la page cible, son mot-clé, les sections pressenties, les contenus et les photos disponibles.
-3. Pose en une seule fois les questions sur ce qui manque encore.
+3. Vérifie les *Prérequis Webflow* de la fiche : polices installées, app MCP lancée dans le Designer.
+4. Pose en une seule fois les questions sur ce qui manque encore.
 
 ## Étapes
 1. **[1/4] BYQ** — suis `.claude/skills/byq/SKILL.md`. Sortie : composant choisi et réécrit en HTML/CSS Client-First prêt à insérer (ou, en chemin B, collé par l'utilisateur puis inspecté).

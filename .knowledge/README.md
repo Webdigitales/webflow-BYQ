@@ -32,6 +32,8 @@ Ce dossier contient **tout ce qui est propre au client**. Le reste du starterkit
 4. Lancez `/onboard` : Claude lit tout, produit `client.md` et liste les informations manquantes.
 5. Lancez `/pipeline` pour construire les sections.
 
+Un exemple complet (client fictif) se trouve dans `examples/fagne-fil/`.
+
 ## Conventions de nommage
 - Photos : `[page]-[sujet]-[n].jpg` (ex : `accueil-equipe-01.jpg`, `services-atelier-02.jpg`). Le nom aide à générer les alt-texts et le SEO des images.
 - Logos : `logo-[variante].svg` (ex : `logo-couleur.svg`, `logo-blanc.svg`, `logo-picto.svg`).

@@ -78,6 +78,10 @@ _Générée par /onboard le 2026-10-23 — sources : `doc/brief.md`, `doc/notes-
 - **Interdits :** pas de noir pur, pas d'effets « tech » (néons, dégradés flashy).
 - **Style photo :** lumière naturelle, gros plans sur le bois et les assemblages.
 
+## Prérequis Webflow
+- [ ] Polices à installer dans *Site settings > Fonts* : Fraunces (500, 600), Inter (400, 500)
+- [ ] Langue principale du site : fr
+
 ## Contrastes
 | Couple | Ratio | Texte normal (4.5) | Grand texte / UI (3) |
 |---|---|---|---|

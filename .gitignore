@@ -17,6 +17,11 @@
 .knowledge/**/*.mov
 .knowledge/**/*.mp4
 .knowledge/**/*.zip
+.knowledge/**/*.PSD
+.knowledge/**/*.TIF
+.knowledge/**/*.TIFF
+.knowledge/**/*.MOV
+.knowledge/**/*.MP4
 
 # --- Système ------------------------------------------------------------
 .DS_Store
