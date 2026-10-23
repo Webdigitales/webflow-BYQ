@@ -1,0 +1,24 @@
+# --- .knowledge ---------------------------------------------------------
+# Documents sensibles (contrats, devis, accès, données personnelles) : jamais dans Git
+.knowledge/private/*
+!.knowledge/private/README.md
+
+# Photos : stockées sur le Drive partagé (lien dans .knowledge/client.md)
+.knowledge/photos/*
+!.knowledge/photos/.gitkeep
+!.knowledge/photos/README.md
+
+# Fichiers sources lourds, où qu'ils soient : sur le Drive
+.knowledge/**/*.psd
+.knowledge/**/*.ai
+.knowledge/**/*.fig
+.knowledge/**/*.tif
+.knowledge/**/*.tiff
+.knowledge/**/*.mov
+.knowledge/**/*.mp4
+.knowledge/**/*.zip
+
+# --- Système ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.claude/settings.local.json

@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_Webflow__webflow_guide_tool",
+      "mcp__claude_ai_Webflow__element_snapshot_tool",
+      "mcp__claude_ai_Webflow__get_asset_preview",
+      "mcp__claude_ai_BYQ_Supply__search_byq_components",
+      "mcp__claude_ai_BYQ_Supply__search_byq_gems",
+      "mcp__claude_ai_BYQ_Supply__search_byq_wireframes",
+      "mcp__claude_ai_BYQ_Supply__search_byq_styles",
+      "mcp__claude_ai_BYQ_Supply__search_library",
+      "mcp__claude_ai_BYQ_Supply__get_byq_component",
+      "mcp__claude_ai_BYQ_Supply__get_byq_gem",
+      "mcp__claude_ai_BYQ_Supply__get_byq_wireframe",
+      "mcp__claude_ai_BYQ_Supply__get_byq_style",
+      "mcp__claude_ai_BYQ_Supply__get_site_guide",
+      "mcp__claude_ai_BYQ_Supply__get_theme",
+      "mcp__claude_ai_BYQ_Supply__list_sites",
+      "mcp__claude_ai_BYQ_Supply__list_pages",
+      "mcp__claude_ai_BYQ_Supply__list_files",
+      "mcp__claude_ai_BYQ_Supply__list_templates",
+      "mcp__claude_ai_BYQ_Supply__list_versions",
+      "mcp__claude_ai_BYQ_Supply__read_file",
+      "mcp__claude_ai_BYQ_Supply__inspect_site",
+      "mcp__claude_ai_BYQ_Supply__audit_section",
+      "mcp__claude_ai_BYQ_Supply__view_original"
+    ],
+    "ask": [
+      "mcp__claude_ai_Webflow__data_sites_tool",
+      "mcp__claude_ai_BYQ_Supply__publish_site",
+      "mcp__claude_ai_BYQ_Supply__delete_file",
+      "mcp__claude_ai_BYQ_Supply__restore_version"
+    ]
+  }
+}
