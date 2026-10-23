@@ -93,6 +93,28 @@ Un dépôt = un client. Le moteur (`.claude/`) est identique d'un projet à l'au
 2. Ouvrir le lien Drive indiqué dans `.knowledge/client.md` → copier les photos dans `.knowledge/photos/`.
 3. Lancer Claude Code : les agents lisent `client.md` et retrouvent tout le contexte (charte, mots-clés, arborescence, IDs Webflow).
 
+## Utilisation sur claude.ai
+
+### Claude Code sur le web (claude.ai/code) — recommandé
+
+Le kit fonctionne tel quel : `CLAUDE.md`, skills, commandes `/xxx` et `settings.json` sont pris en compte.
+
+- Le dépôt du client doit être sur **GitHub** (privé).
+- Les connecteurs Webflow et BYQ Supply sont liés au compte claude.ai : vérifier qu'ils répondent en début de session.
+- `photos/` et `private/` étant hors Git, ils sont **absents** de l'environnement cloud. `/onboard` s'appuie alors sur le lien Drive de `client.md`.
+- Le Designer Webflow (avec l'app MCP) doit rester ouvert dans le navigateur, comme en local.
+- Commiter et pousser `client.md` après `/onboard`, sinon il est perdu en fin de session.
+
+### Claude.ai en mode chat (Projets) — adaptation manuelle
+
+| Élément du kit | Équivalent sur claude.ai |
+|---|---|
+| `.claude/CLAUDE.md` | Coller le contenu dans les **instructions du Projet** |
+| `.claude/skills/*` | Zipper chaque dossier de skill et l'importer comme **Skill** (Paramètres → Capacités). Les commandes `/xxx` ne sont plus reconnues : demander la skill par son nom (« lance l'onboarding », « audit a11y »…). |
+| `.knowledge/` (brief, charte, logos) | Ajouter aux **connaissances du Projet** (jamais `private/`) |
+| `client.md` | Claude produit la fiche dans la conversation ; l'ajouter soi-même aux connaissances du Projet et la tenir à jour |
+| `settings.json` | **Ignoré** : seule la règle de validation de `CLAUDE.md` et les confirmations de claude.ai protègent les écritures |
+
 ## Faire évoluer le kit
 
 Les améliorations des agents (`.claude/`) se font dans le **dépôt du starterkit**, puis sont recopiées dans les projets en cours si nécessaire. Ne jamais y ajouter d'information propre à un client.
