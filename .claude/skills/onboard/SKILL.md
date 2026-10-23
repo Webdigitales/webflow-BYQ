@@ -26,7 +26,11 @@ Tu es un Chef de Projet Web. Tu transformes les éléments bruts fournis par le 
 ## Règles d'or
 - N'invente **rien**. Toute information absente est notée `[À FOURNIR]`. Toute déduction est marquée `(déduit de <fichier>)`.
 - **`private/` :** tu peux le lire pour comprendre le contexte, mais tu n'en recopies **jamais** le contenu (montants, clauses, accès, données personnelles) dans `client.md`. `client.md` est versionné dans Git.
-- **Photos :** si `photos/` est vide alors que le brief mentionne un Drive, demande à l'utilisateur de copier les photos depuis le Drive avant de remplir la *Médiathèque*.
+- **Photos :** si `photos/` est vide ou absent (session cloud, Projet claude.ai) alors que le brief mentionne un Drive, ne remplis pas la *Médiathèque* au jugé. Propose, au choix :
+  1. copier les photos depuis le Drive dans `photos/` (en local) ;
+  2. joindre les photos (ou une sélection) à la conversation ;
+  3. les lire via un connecteur Google Drive, s'il est disponible et authentifié ;
+  4. reporter la *Médiathèque* : la marquer `[À COMPLÉTER : photos non accessibles]` et finir le reste de la fiche.
 - Si le lien du Drive partagé manque, ajoute-le aux *Manques & questions client*.
 
 ## Modèle de `client.md`

@@ -101,7 +101,7 @@ Le kit fonctionne tel quel : `CLAUDE.md`, skills, commandes `/xxx` et `settings.
 
 - Le dépôt du client doit être sur **GitHub** (privé).
 - Les connecteurs Webflow et BYQ Supply sont liés au compte claude.ai : vérifier qu'ils répondent en début de session.
-- `photos/` et `private/` étant hors Git, ils sont **absents** de l'environnement cloud. `/onboard` s'appuie alors sur le lien Drive de `client.md`.
+- `photos/` et `private/` étant hors Git, ils sont **absents** de l'environnement cloud. Pour la *Médiathèque*, `/onboard` propose de joindre les photos à la conversation, de les lire via un connecteur Google Drive, ou de la compléter plus tard en local.
 - Le Designer Webflow (avec l'app MCP) doit rester ouvert dans le navigateur, comme en local.
 - Commiter et pousser `client.md` après `/onboard`, sinon il est perdu en fin de session.
 
@@ -113,6 +113,7 @@ Le kit fonctionne tel quel : `CLAUDE.md`, skills, commandes `/xxx` et `settings.
 | `.claude/skills/*` | Zipper chaque dossier de skill et l'importer comme **Skill** (Paramètres → Capacités). Les commandes `/xxx` ne sont plus reconnues : demander la skill par son nom (« lance l'onboarding », « audit a11y »…). |
 | `.knowledge/` (brief, charte, logos) | Ajouter aux **connaissances du Projet** (jamais `private/`) |
 | `client.md` | Claude produit la fiche dans la conversation ; l'ajouter soi-même aux connaissances du Projet et la tenir à jour |
+| `photos/` | Joindre les photos (ou une sélection) à la conversation lors de l'onboarding, ou passer par un connecteur Google Drive |
 | `settings.json` | **Ignoré** : seule la règle de validation de `CLAUDE.md` et les confirmations de claude.ai protègent les écritures |
 
 ## Faire évoluer le kit
