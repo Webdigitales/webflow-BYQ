@@ -12,7 +12,7 @@
 
 ## Liens
 - **Drive partagé du projet :** (dossier racine : photos, sources, documents privés)
-- **Site Webflow :** (URL du Designer ou nom du site)
+- **Site Webflow :** (nom exact du site dans Webflow ; son ID sera vérifié et noté par `/onboard`)
 - **Responsable projet :**
 
 ## Cibles

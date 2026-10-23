@@ -36,7 +36,7 @@ _Générée par /onboard le <date> — sources : <liste des fichiers lus>_
 
 ## Liens
 - Drive partagé : <URL> (photos, sources lourdes, documents privés)
-- Site Webflow : <nom / URL> — IDs utiles : site, collections, pages
+- Site Webflow : <nom> — **site ID : <id>** (obligatoire, vérifié via le MCP) — IDs utiles : pages, collections
 - Responsable projet : <nom>
 
 ## Identité

@@ -9,7 +9,8 @@ Un dépôt = un client. Le moteur (`.claude/`) est identique d'un projet à l'au
 - [Claude Code](https://claude.com/claude-code) installé
 - Connecteurs MCP actifs dans Claude :
   - **Webflow** : accès au site du client (le Designer doit être ouvert dans le navigateur pour modifier éléments et styles)
-  - **BYQ Supply** : accès à la bibliothèque de composants, wireframes et gems (un abonnement Pro ou Ultra est nécessaire pour publier un site BYQ)
+  - **BYQ Supply** : accès à la bibliothèque de composants, wireframes et gems (certains composants nécessitent un abonnement Pro)
+- Un compte BYQ Supply dans le navigateur, pour le chemin de secours (copier-coller de la version Webflow native)
 - Accès au **Drive partagé** du client (photos, sources lourdes, documents privés)
 
 ## Structure
@@ -21,7 +22,7 @@ Un dépôt = un client. Le moteur (`.claude/`) est identique d'un projet à l'au
 │   ├── settings.json         ← permissions MCP (lectures autorisées, publication sur confirmation)
 │   └── skills/
 │       ├── onboard/          ← /onboard   : lit .knowledge et génère la fiche client
-│       ├── byq/              ← /byq       : choix BYQ + traduction Tailwind → Client-First
+│       ├── byq/              ← /byq       : choix BYQ et reconstruction Client-First (collage BYQ en secours)
 │       ├── seo/              ← /seo       : Hn, metas, OpenGraph, JSON-LD, CMS
 │       ├── a11y/             ← /a11y      : audit WCAG 2.1 AA
 │       ├── webflow/          ← /webflow   : exécution via le MCP Webflow
@@ -70,7 +71,15 @@ Un dépôt = un client. Le moteur (`.claude/`) est identique d'un projet à l'au
 - **Aucune publication** sans demande explicite.
 - **Zéro invention** : les infos client manquantes sont signalées `[À FOURNIR : …]`, jamais inventées.
 - **Confidentialité** : le contenu de `.knowledge/private/` n'est jamais recopié (ni dans `client.md`, ni sur le site).
-- **Design System** : les classes Tailwind de BYQ sont systématiquement traduites en classes **Client-First** avant injection.
+- **Design System** : les composants BYQ sont reconstruits en classes Client-First et variables du projet. Aucune classe Tailwind n'arrive dans Webflow.
+
+## Le cycle d'une section
+
+1. Claude propose 2 à 3 composants BYQ (vignettes et liens) ; vous choisissez.
+2. Claude réécrit le composant en HTML/CSS Client-First aux couleurs du client, avec ses textes, puis le passe en revue SEO et accessibilité.
+3. Claude vous montre le récapitulatif, puis l'insère dans Webflow via le MCP après votre accord.
+
+**Secours :** si la reconstruction coince (animations complexes, rendu trop éloigné), Claude vous propose de copier la version Webflow native depuis BYQ et de la coller dans le Designer ; il l'adapte ensuite.
 
 ## Versionnement
 

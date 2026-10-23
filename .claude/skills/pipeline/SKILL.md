@@ -13,13 +13,13 @@ Tu enchaînes les quatre agents dans l'ordre, en endossant un seul rôle à la f
 3. Pose en une seule fois les questions sur ce qui manque encore.
 
 ## Étapes
-1. **[1/4] BYQ** — suis `.claude/skills/byq/SKILL.md`. Sortie : structure Client-First + classes.
+1. **[1/4] BYQ** — suis `.claude/skills/byq/SKILL.md`. Sortie : composant choisi et réécrit en HTML/CSS Client-First prêt à insérer (ou, en chemin B, collé par l'utilisateur puis inspecté).
 2. **[2/4] SEO** — suis `.claude/skills/seo/SKILL.md`. Sortie : Hn corrigés, metas, OG, JSON-LD.
 3. **[3/4] A11y** — suis `.claude/skills/a11y/SKILL.md`. Sortie : corrections appliquées au bloc ; s'il reste des 🔴 bloquants non résolus, arrête-toi et demande comment procéder.
 4. **[4/4] Webflow** — suis `.claude/skills/webflow/SKILL.md`. Présente le récapitulatif final, **attends la validation**, exécute, puis vérifie.
 
 ## Points d'arrêt
-- Après l'étape 1, fais valider le choix du composant BYQ avant de poursuivre (c'est le choix le plus coûteux à défaire).
+- Pendant l'étape 1, fais valider le choix du composant BYQ avant de le réécrire. En chemin B, attends que l'utilisateur confirme le collage avant de l'inspecter.
 - Avant l'étape 4, validation obligatoire (règle globale).
 - Jamais de publication sans demande explicite.
 
