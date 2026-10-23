@@ -93,21 +93,25 @@ Un dépôt = un client. Le moteur (`.claude/`) est identique d'un projet à l'au
 2. Ouvrir le lien Drive indiqué dans `.knowledge/client.md` → copier les photos dans `.knowledge/photos/`.
 3. Lancer Claude Code : les agents lisent `client.md` et retrouvent tout le contexte (charte, mots-clés, arborescence, IDs Webflow).
 
-## Utilisation sur claude.ai
+## Claude Code ou Claude en mode chat
 
-### Claude Code sur le web (claude.ai/code) — recommandé
+Le kit est conçu pour **Claude Code**. Il peut aussi servir dans **Claude en mode chat** (Projets claude.ai), au prix de quelques adaptations manuelles.
+
+### Claude Code (terminal ou web) — recommandé
 
 Le kit fonctionne tel quel : `CLAUDE.md`, skills, commandes `/xxx` et `settings.json` sont pris en compte.
 
-- Le dépôt du client doit être sur **GitHub** (privé).
-- Les connecteurs Webflow et BYQ Supply sont liés au compte claude.ai : vérifier qu'ils répondent en début de session.
-- `photos/` et `private/` étant hors Git, ils sont **absents** de l'environnement cloud. Pour la *Médiathèque*, `/onboard` propose de joindre les photos à la conversation, de les lire via un connecteur Google Drive, ou de la compléter plus tard en local.
-- Le Designer Webflow (avec l'app MCP) doit rester ouvert dans le navigateur, comme en local.
-- Commiter et pousser `client.md` après `/onboard`, sinon il est perdu en fin de session.
+- **Terminal :** lancer Claude Code à la racine du dépôt cloné (voir *Démarrer un nouveau projet*).
+- **Web (claude.ai/code) :** Claude Code clone le dépôt depuis GitHub. Le dépôt du client doit donc être hébergé sur **GitHub** (en privé) et accessible à l'app GitHub de Claude.
+  - `photos/` et `private/` étant hors Git, ils sont **absents** de l'environnement cloud. Pour la *Médiathèque*, `/onboard` propose de joindre les photos à la conversation, de les lire via un connecteur Google Drive, ou de la compléter plus tard en local.
+  - Commiter et pousser `client.md` après `/onboard`, sinon il est perdu en fin de session.
+- Dans les deux cas, les connecteurs Webflow et BYQ Supply sont liés au compte claude.ai (vérifier qu'ils répondent en début de session), et le Designer Webflow (avec l'app MCP) doit rester ouvert dans le navigateur.
 
-### Claude.ai en mode chat (Projets) — adaptation manuelle
+### Claude en mode chat (Projets) — adaptation manuelle
 
-| Élément du kit | Équivalent sur claude.ai |
+Pas besoin de GitHub : les fichiers du kit sont ajoutés à la main dans un Projet claude.ai.
+
+| Élément du kit | Équivalent dans un Projet |
 |---|---|
 | `.claude/CLAUDE.md` | Coller le contenu dans les **instructions du Projet** |
 | `.claude/skills/*` | Zipper chaque dossier de skill et l'importer comme **Skill** (Paramètres → Capacités). Les commandes `/xxx` ne sont plus reconnues : demander la skill par son nom (« lance l'onboarding », « audit a11y »…). |
